@@ -37,7 +37,7 @@ namespace Clock.Wpf
             DateTime now = DateTime.Now;
             string time = now.ToString("HH:mm");
             StringBuilder sb = new StringBuilder();
-            foreach (var n in _notifications[time].Where(t => t.LastShown < now.AddMinutes(2)))
+            foreach (var n in _notifications[time].Where(t => t.LastShown.AddMinutes(2) < now))
             {
                 if (sb.Length == 0)
                     sb.AppendLine(time);

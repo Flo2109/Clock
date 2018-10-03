@@ -23,6 +23,8 @@ namespace Clock.Wpf
         private readonly Brush _hoverForeground = Brushes.White;
         private bool _isMouseOver;
 
+        public System.Windows.Forms.Screen Screen { get; set; }
+
         public ClockView()
         {
             Icon = new BitmapImage(new Uri("pack://application:,,,/clock.ico"));
@@ -88,6 +90,22 @@ namespace Clock.Wpf
                 Topmost = false;
                 Topmost = true;
             }
+
+            UpdatePosition();
+        }
+
+        private void UpdatePosition()
+        {
+            try
+            {
+                double heightOffset = 37;
+                double widthOffset = 53;
+                if (Screen.Primary)
+                    widthOffset = 105;
+                Top = Screen.Bounds.Y + Screen.Bounds.Height - heightOffset;
+                Left = Screen.Bounds.X + Screen.Bounds.Width - widthOffset;
+            }
+            catch { }
         }
 
         private void ClockView_MouseDoubleClick(object sender, MouseButtonEventArgs e)

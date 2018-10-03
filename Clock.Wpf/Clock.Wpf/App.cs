@@ -13,6 +13,7 @@ namespace Clock.Wpf
     public class App : Application
     {
         private NotificationManager _notifications;
+
         [STAThread]
         public static void Main()
         {
@@ -29,13 +30,7 @@ namespace Clock.Wpf
             foreach (Screen screen in Screen.AllScreens)
             {
                 ClockView clock = new ClockView();
-
-                double heightOffset = 37;
-                double widthOffset = 53;
-                if (screen.Primary)
-                    widthOffset = 105;
-                clock.Top = screen.Bounds.Y + screen.Bounds.Height - heightOffset;
-                clock.Left = screen.Bounds.X + screen.Bounds.Width - widthOffset;
+                clock.Screen = screen;
                 clock.Show();
             }
         }
