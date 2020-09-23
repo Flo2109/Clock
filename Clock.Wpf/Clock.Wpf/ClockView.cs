@@ -42,7 +42,7 @@ namespace Clock.Wpf
             WindowStyle = WindowStyle.None;
             ShowInTaskbar = false;
             AllowsTransparency = true;
-            var color = (SolidColorBrush)new BrushConverter().ConvertFromString("#1E1E1E");
+            var color = Brushes.Black;
             Background = color;
             _defaultForeground = color;
             _output.Foreground = _defaultForeground;
