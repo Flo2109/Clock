@@ -36,7 +36,7 @@ namespace Clock.Wpf
             Content = _output;
             var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(1000);
-            timer.Tick += _timer_Tick;
+            timer.Tick += Timer_Tick;
             timer.Start();
 
             WindowStyle = WindowStyle.None;
@@ -77,7 +77,7 @@ namespace Clock.Wpf
             }
         }
 
-        private void _timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             UpdateTime();
         }
