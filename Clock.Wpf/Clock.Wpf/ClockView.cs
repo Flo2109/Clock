@@ -98,12 +98,15 @@ namespace Clock.Wpf
         {
             try
             {
-                double heightOffset = 37;
-                double widthOffset = 53;
-                if (Screen.Primary)
-                    widthOffset = 105;
-                Top = Screen.Bounds.Y + Screen.Bounds.Height - heightOffset;
-                Left = Screen.Bounds.X + Screen.Bounds.Width - widthOffset;
+                if (Screen != null)
+                {
+                    double heightOffset = 37;
+                    double widthOffset = 53;
+                    if (Screen.Primary)
+                        widthOffset = 105;
+                    Top = Screen.Bounds.Y + Screen.Bounds.Height - heightOffset;
+                    Left = Screen.Bounds.X + Screen.Bounds.Width - widthOffset;
+                }
             }
             catch { }
         }
